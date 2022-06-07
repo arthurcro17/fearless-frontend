@@ -1,4 +1,4 @@
-function createCard(name, description, pictureUrl) {
+function createCard(name, description, pictureUrl, start, end) {
     return `
       <div class="col-4">
         <div class="card shadow p-3 mb-5 bg-body rounded p-2 bg-light border">
@@ -6,6 +6,7 @@ function createCard(name, description, pictureUrl) {
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
             <p class="card-text">${description}</p>
+          <div class="card-footer">${start} - ${end}</div>
           </div>
         </div>
       </div
@@ -33,7 +34,11 @@ function createCard(name, description, pictureUrl) {
             const name = details.conference.name
             const description = details.conference.description
             const pictureUrl = details.conference.location.picture_url
-            const html = createCard(name, description, pictureUrl)
+            const starts = details.conference.starts
+            const ends = details.conference.ends
+            const start = `${starts.slice(5,7)}/${starts.slice(8,10)}/${starts.slice(0,4)}`
+            const end = `${ends.slice(5,7)}/${ends.slice(8,10)}/${ends.slice(0,4)}`
+            const html = createCard(name, description, pictureUrl, start, end)
 
             const column = document.querySelector('.row');
             column.innerHTML += html;

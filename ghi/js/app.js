@@ -13,7 +13,9 @@ function createCard(name, description, pictureUrl, start, end, location) {
       </div
     `
 }
-
+function error() {
+    return 'Something is wrong with the conferences data.'
+}
 
   window.addEventListener('DOMContentLoaded', async () => {
 
@@ -23,7 +25,10 @@ function createCard(name, description, pictureUrl, start, end, location) {
       const response = await fetch(url)
   
       if (!response.ok) {
-        console.error(e)
+        const message = error()
+        const error_message = document.querySelector('.alert');
+        error_message.innerHTML += message
+        console.log('First Error')
       } else {
         const data = await response.json()
   
@@ -49,7 +54,10 @@ function createCard(name, description, pictureUrl, start, end, location) {
   
       }
     } catch (e) {
-        console.error(e)
+        const message = error()
+        const error_message = document.querySelector('.alert');
+        error_message.innerHTML += message
+        console.log('Second Error')
     }
   
   });

@@ -1,14 +1,5 @@
-import Nav from "./Nav"
-
-function App(props) {
-  if (props.attendees === undefined) {
-    return null
-  }
-
-  return (
-    <div>
-    <Nav />
-    <div className="container">
+function AttendeesList(props) {
+    return (
       <table className = "table table-striped">
         <thead>
           <tr>
@@ -17,19 +8,18 @@ function App(props) {
           </tr>
         </thead>
         <tbody>
-        { props.attendees && props.attendees.length ? props.attendees.map(attendee => {
+        { props.attendees.map(attendee => {
           return (
             <tr key={ attendee.href }>
               <td>{ attendee.name }</td>
               <td>{ attendee.conference }</td>
             </tr>
           );
-        }): null }
+        })
+        }
         </tbody>
       </table>
-    </div>
-    </div>
-  )
-}
-
-export default App;
+    );
+  }
+  
+  export default AttendeesList;

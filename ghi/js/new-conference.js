@@ -30,7 +30,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                     'Content-Type': 'application/json',
                 },
                 }
-                console.log(json)
                 const response = await fetch(conferenceUrl, fetchConfig)
                 if (response.ok) {
                 formTag.reset()

@@ -115,6 +115,7 @@ class ConferenceForm extends React.Component {
 
     render() {
       return (
+        <div className="my-5 container">
         <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
@@ -160,6 +161,7 @@ class ConferenceForm extends React.Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
       );
     }

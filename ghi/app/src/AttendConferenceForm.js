@@ -20,7 +20,7 @@ class AttendConferenceForm extends React.Component {
         delete data.conferences
         console.log(data)
 
-        const locationUrl = 'http://localhost:8001/api/attendees/'
+        const attendeesUrl = 'http://localhost:8001/api/attendees/'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -28,7 +28,7 @@ class AttendConferenceForm extends React.Component {
                 'Content-Type': 'application/json',
             }
         }
-        const response = await fetch(locationUrl, fetchConfig)
+        const response = await fetch(attendeesUrl, fetchConfig)
         if (response.ok) {
             const newLocation = await response.json()
             console.log(newLocation)
